@@ -29,7 +29,7 @@ public class MicrometerConfig {
 
 		ConsoleReporter consoleReporter = ConsoleReporter.forRegistry(metrics).convertRatesTo(TimeUnit.SECONDS)
 				.convertDurationsTo(TimeUnit.SECONDS).build();
-		//consoleReporter.start(10, TimeUnit.SECONDS);
+		consoleReporter.start(10, TimeUnit.SECONDS);
 
 		CsvReporter csvReporter = CsvReporter.forRegistry(metrics).formatFor(Locale.US).convertRatesTo(TimeUnit.SECONDS)
 				.convertDurationsTo(TimeUnit.SECONDS).build(new File(filePath));

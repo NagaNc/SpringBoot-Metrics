@@ -18,8 +18,8 @@ public class SpringMicrometerController {
 
 	@RequestMapping("/welcome")
 	public String welcome() {
-		Timer responses = meterRegistry.timer("responses");
-		meterRegistry.meter("requests").mark();
+		Timer responses = meterRegistry.timer("/welcome Timer");
+		meterRegistry.meter("/welcome Meter").mark();
 		try (Timer.Context context = responses.time()) {
 			return "Welcome User";
 		}
@@ -27,8 +27,8 @@ public class SpringMicrometerController {
 
 	@RequestMapping("/hello")
 	public String hello() {
-		Timer responses = meterRegistry.timer("responses");
-		meterRegistry.meter("requests").mark();
+		Timer responses = meterRegistry.timer("/hello Timer");
+		meterRegistry.meter("/hello Meter").mark();
 		try (Timer.Context context = responses.time()) {
 			return "Hello User";
 		}
